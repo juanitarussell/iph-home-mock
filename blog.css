@@ -1,0 +1,228 @@
+/* Inner Pursuit of Happiness — Blog (Reflections & Insights) design preview.
+   Uses the --u unit (one mockup pixel) and shared header/footer from styles.css.
+   Content spans the same wide boundary as the Books and Author pages. */
+
+:root {
+  --bl-w: min(calc(100vw - 48px), calc(790 * var(--u)));
+}
+
+.bl-wrap {
+  width: var(--bl-w);
+  margin-inline: auto;
+}
+
+.bl-page {
+  background: var(--ivory);
+  padding: calc(10 * var(--u)) 0 calc(12 * var(--u));
+}
+
+/* —— Heading with gold rule —— */
+.bl-head {
+  display: grid;
+  grid-template-columns: calc(26 * var(--u)) 1fr;
+  column-gap: calc(8 * var(--u));
+  align-items: center;
+}
+
+.bl-head::before {
+  content: "";
+  height: 1px;
+  background: var(--gold);
+}
+
+.bl-head h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: calc(22 * var(--u));
+  line-height: 1.1;
+  color: var(--navy);
+}
+
+.bl-head p {
+  grid-column: 2;
+  margin-top: calc(3 * var(--u));
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: max(16px, calc(9.6 * var(--u)));
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+/* —— Category filters —— */
+.bl-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: calc(5 * var(--u));
+  margin-top: calc(9 * var(--u));
+}
+
+.bl-filters button {
+  height: calc(16 * var(--u));
+  min-height: 30px;
+  padding: 0 calc(10 * var(--u));
+  border: 1px solid #cdbf9f;
+  border-radius: 999px;
+  background: #fffdf8;
+  color: var(--navy);
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: max(13px, calc(7 * var(--u)));
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.bl-filters button:hover {
+  border-color: var(--gold);
+}
+
+.bl-filters button[aria-pressed="true"] {
+  background: var(--navy-deep);
+  border-color: var(--navy-deep);
+  color: #fff;
+}
+
+/* —— Article grid —— */
+.bl-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(7 * var(--u));
+  margin-top: calc(9 * var(--u));
+}
+
+.bl-card {
+  display: flex;
+  flex-direction: column;
+  padding: calc(5 * var(--u)) calc(5 * var(--u)) calc(7 * var(--u));
+  background: #fdf9f2;
+  border: 1px solid #eadfc9;
+  border-radius: calc(5 * var(--u));
+}
+
+.bl-card[hidden] {
+  display: none;
+}
+
+.bl-card img {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  height: auto;
+  object-fit: cover;
+  border-radius: calc(3 * var(--u));
+  filter: sepia(0.06) saturate(1.03);
+}
+
+.bl-meta {
+  margin: calc(6 * var(--u)) calc(3 * var(--u)) 0;
+  font-family: var(--sans);
+  font-size: max(12px, calc(6.6 * var(--u)));
+  color: #3a4660;
+}
+
+.bl-card h2 {
+  margin: calc(4 * var(--u)) calc(3 * var(--u)) 0;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: calc(12 * var(--u));
+  line-height: 1.2;
+  color: var(--navy);
+}
+
+.bl-card h2 a {
+  text-decoration: none;
+}
+
+.bl-card h2 a:hover {
+  text-decoration: underline;
+}
+
+.bl-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(8 * var(--u));
+  margin: auto calc(3 * var(--u)) 0;
+  padding-top: calc(7 * var(--u));
+}
+
+.bl-tag {
+  padding: calc(2 * var(--u)) calc(9 * var(--u));
+  border-radius: 999px;
+  background: #f4e6cc;
+  font-family: var(--sans);
+  font-size: max(12px, calc(6.6 * var(--u)));
+  color: #4a3b1f;
+}
+
+.bl-read {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: max(15px, calc(8.8 * var(--u)));
+  color: var(--gold-text);
+  text-underline-offset: 3px;
+}
+
+/* —— Tablet and phone —— */
+@media (max-width: 960px) {
+  :root {
+    --bl-w: calc(100vw - 2.5rem);
+  }
+
+  .bl-page {
+    padding: 1.5rem 0 2rem;
+  }
+
+  .bl-head {
+    grid-template-columns: 2rem 1fr;
+    column-gap: 0.75rem;
+  }
+
+  .bl-head h1 {
+    font-size: 2.2rem;
+  }
+
+  .bl-filters {
+    margin-top: 1.1rem;
+    gap: 0.45rem;
+  }
+
+  .bl-filters button {
+    padding: 0 0.9rem;
+    min-height: 36px;
+  }
+
+  .bl-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    margin-top: 1.1rem;
+  }
+
+  .bl-card {
+    padding: 0.5rem 0.5rem 0.9rem;
+    border-radius: 8px;
+  }
+
+  .bl-card img {
+    border-radius: 5px;
+  }
+
+  .bl-card h2 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .bl-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bl-head p {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bl-filters button {
+    transition: none;
+  }
+}
