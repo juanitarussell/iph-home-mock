@@ -671,6 +671,7 @@ h3 {
 /* —— Integrated Self-Realization: photo matches the card grid, 40/60 split —— */
 @media (min-width: 961px) {
   .ab-isr-grid {
+    width: var(--ab-w-top);
     grid-template-columns: 2fr 3fr;
     grid-template-rows: auto auto;
     row-gap: 0;
