@@ -1,0 +1,1010 @@
+/* Inner Pursuit of Happiness — home page design preview.
+   Desktop geometry is taken from the approved 682px-wide mockup: every
+   measurement is written in mockup pixels multiplied by --u (one mockup
+   pixel), so the page keeps the mockup's proportions at any desktop width. */
+
+:root {
+  --u: min(calc(100vw / 682), 2.2px);
+  --navy: #1b2a46;
+  --navy-deep: #13223b;
+  --ink: #26324a;
+  --gold: #b48a3e;
+  --gold-text: #8f6b2a;
+  --gold-btn-top: #ad883d;
+  --gold-btn-bottom: #8e6b2b;
+  --cream: #faf6ee;
+  --ivory: #fdfbf7;
+  --line: #e6dccb;
+  --serif: "Cormorant Garamond", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: "Inter", "Segoe UI", system-ui, sans-serif;
+  --script: "Allura", "Segoe Script", cursive;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--serif);
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+p,
+ul,
+figure,
+blockquote {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold-text);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 50;
+  padding: 0.6rem 1rem;
+  background: var(--navy);
+  color: #fff;
+  font-family: var(--sans);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.wrap {
+  width: calc(682 * var(--u));
+  margin-inline: auto;
+  position: relative;
+}
+
+/* —— Header (mockup y 0–46) —— */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  height: calc(46 * var(--u));
+  padding: 0 calc(32 * var(--u)) 0 calc(36 * var(--u));
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: calc(6 * var(--u));
+  text-decoration: none;
+  color: var(--navy);
+  width: calc(157 * var(--u));
+  flex: none;
+}
+
+.brand-mark {
+  width: calc(28 * var(--u));
+  height: auto;
+}
+
+.brand-name {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: max(11px, calc(10.5 * var(--u)));
+  line-height: 1.08;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.site-nav ul {
+  display: flex;
+  align-items: center;
+  gap: calc(13 * var(--u));
+}
+
+.site-nav a {
+  position: relative;
+  display: inline-block;
+  padding: calc(4 * var(--u)) 0;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: max(13px, calc(9.6 * var(--u)));
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.site-nav a:hover::after,
+.site-nav a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--gold-text);
+}
+
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: calc(26 * var(--u));
+  margin-left: auto;
+}
+
+.tool-link {
+  display: grid;
+  place-items: center;
+  color: var(--navy);
+}
+
+.header-tools svg {
+  width: calc(12.5 * var(--u));
+  height: calc(12.5 * var(--u));
+  min-width: 16px;
+  min-height: 16px;
+}
+
+.tool-link svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: calc(11 * var(--u));
+  color: var(--navy);
+}
+
+.social-fb circle {
+  fill: var(--navy);
+}
+
+.social-fb .ink,
+.social-yt .ink {
+  fill: #fff;
+}
+
+.social-ig rect,
+.social-ig circle {
+  fill: none;
+  stroke: var(--navy);
+  stroke-width: 2;
+}
+
+.social-ig .dot {
+  fill: var(--navy);
+  stroke: none;
+}
+
+.social-yt rect {
+  fill: var(--navy);
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* —— Hero (mockup y 47–257: 210 tall) —— */
+.hero {
+  position: relative;
+  height: calc(210 * var(--u));
+  overflow: hidden;
+  background: #c98d4f;
+}
+
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 30% 33%;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 22% 46% at 74.6% 50%, rgba(255, 240, 214, 0.38), rgba(255, 240, 214, 0) 100%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-copy {
+  position: absolute;
+  left: calc(390 * var(--u));
+  width: calc(238 * var(--u));
+  top: calc(26 * var(--u));
+  text-align: center;
+  color: var(--navy);
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: calc(28 * var(--u));
+  line-height: 0.97;
+  letter-spacing: -0.005em;
+  color: var(--navy);
+}
+
+.hero-lede {
+  margin-top: calc(10 * var(--u));
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: calc(11 * var(--u));
+  line-height: 1.45;
+  color: #1f2a3c;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-weight: 600;
+  text-decoration: none;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.btn-gold {
+  color: #fff;
+  background: linear-gradient(180deg, var(--gold-btn-top), var(--gold-btn-bottom));
+  box-shadow: 0 calc(2 * var(--u)) calc(6 * var(--u)) rgba(80, 52, 12, 0.25);
+}
+
+.btn-gold:hover {
+  filter: brightness(1.08);
+}
+
+.btn-caps {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.hero .btn {
+  margin-top: calc(14 * var(--u));
+  width: calc(136 * var(--u));
+  height: calc(29 * var(--u));
+  font-size: max(11px, calc(7.8 * var(--u)));
+}
+
+/* —— Feature icons (mockup y 257–343: 86 tall) —— */
+.features {
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+}
+
+.features-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: calc(86 * var(--u));
+  padding: 0 calc(18 * var(--u));
+  align-items: center;
+}
+
+.features-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: calc(4 * var(--u)) 0;
+}
+
+.features-list li + li {
+  border-left: 1px solid var(--line);
+}
+
+.feature-icon {
+  width: calc(25 * var(--u));
+  height: calc(25 * var(--u));
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.features h2 {
+  margin-top: calc(7 * var(--u));
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: max(15px, calc(11.2 * var(--u)));
+  line-height: 1.15;
+  color: var(--navy);
+}
+
+.features p {
+  margin-top: calc(3 * var(--u));
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: max(13px, calc(8.4 * var(--u)));
+  color: #3c4658;
+}
+
+/* —— Who this is for (mockup y 343–580) —— */
+.who {
+  background: var(--ivory);
+  padding: calc(18 * var(--u)) 0 calc(14 * var(--u));
+}
+
+.who-grid {
+  display: grid;
+  grid-template-columns: calc(312 * var(--u)) calc(275 * var(--u));
+  justify-content: space-between;
+  padding: 0 calc(40 * var(--u)) 0 calc(45 * var(--u));
+}
+
+.script-heading {
+  font-family: var(--script);
+  font-weight: 400;
+  font-size: calc(30 * var(--u));
+  line-height: 1;
+  color: var(--gold-text);
+  margin-top: calc(4 * var(--u));
+}
+
+.who-copy p {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: calc(12.4 * var(--u));
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.who-copy .script-heading + p {
+  margin-top: calc(12 * var(--u));
+}
+
+.who-more {
+  margin-top: calc(10 * var(--u));
+}
+
+.photo {
+  border-radius: calc(6 * var(--u));
+  object-fit: cover;
+  box-shadow: 0 calc(3 * var(--u)) calc(10 * var(--u)) rgba(40, 30, 10, 0.12);
+}
+
+.who-photo {
+  width: calc(275 * var(--u));
+  height: calc(164 * var(--u));
+  object-position: 50% 55%;
+}
+
+.tagline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(8 * var(--u));
+  margin-top: calc(12 * var(--u));
+  font-family: var(--script);
+  font-size: calc(21 * var(--u));
+  line-height: 1.2;
+  color: var(--navy);
+}
+
+.heart {
+  width: calc(12 * var(--u));
+  height: calc(12 * var(--u));
+  fill: var(--gold);
+}
+
+/* —— Quote banner (mockup y 580–688: 108 tall) —— */
+.quote {
+  position: relative;
+  height: calc(108 * var(--u));
+  overflow: hidden;
+  background: var(--navy-deep);
+}
+
+.quote-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 60%;
+}
+
+.quote::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 48% 70% at 50% 55%, rgba(14, 22, 40, 0.5), rgba(14, 22, 40, 0.12) 100%);
+}
+
+.quote-inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.quote-mark {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: calc(40 * var(--u));
+  line-height: 0.6;
+  height: calc(18 * var(--u));
+  color: #d4ad5f;
+}
+
+.quote blockquote p {
+  margin-top: calc(6 * var(--u));
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: calc(12 * var(--u));
+  line-height: 1.5;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.quote figcaption {
+  margin-top: calc(7 * var(--u));
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: max(11px, calc(7.4 * var(--u)));
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e3bf72;
+}
+
+/* —— Your Journey to Healing (mockup y 688–868) —— */
+.journey {
+  background: var(--cream);
+  padding: calc(14 * var(--u)) 0 calc(12 * var(--u));
+  border-top: 1px solid var(--line);
+}
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: calc(326 * var(--u)) 1fr;
+  gap: calc(32 * var(--u));
+  align-items: center;
+  padding: 0 calc(40 * var(--u)) 0 calc(34 * var(--u));
+}
+
+.journey-photo {
+  width: calc(326 * var(--u));
+  height: calc(154 * var(--u));
+  object-position: 50% 60%;
+}
+
+.journey-copy h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: calc(24 * var(--u));
+  line-height: 1.1;
+  color: var(--navy);
+}
+
+.journey-copy p {
+  margin-top: calc(9 * var(--u));
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: calc(12.2 * var(--u));
+  line-height: 1.33;
+  color: var(--ink);
+}
+
+.journey .btn {
+  margin-top: calc(16 * var(--u));
+  width: calc(89 * var(--u));
+  height: calc(29 * var(--u));
+  font-size: max(13px, calc(10 * var(--u)));
+  font-weight: 500;
+}
+
+/* —— Footer (mockup y 868–1024: 156 tall) —— */
+.site-footer {
+  background: var(--navy-deep);
+  color: #fff;
+  padding: calc(18 * var(--u)) 0 calc(14 * var(--u));
+}
+
+.footer-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 0 calc(36 * var(--u)) calc(18 * var(--u)) calc(45 * var(--u));
+}
+
+.footer-col + .footer-col {
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+  padding-left: calc(24 * var(--u));
+}
+
+.footer-col:first-child {
+  padding-right: calc(24 * var(--u));
+}
+
+.footer-label {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: max(11px, calc(7.4 * var(--u)));
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c9d4e6;
+}
+
+.footer-serif {
+  margin-top: calc(9 * var(--u));
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: max(15px, calc(10.6 * var(--u)));
+  line-height: 1.45;
+}
+
+.footer-serif a {
+  text-decoration: none;
+}
+
+.footer-serif a:hover,
+.footer-contact a:hover,
+.footer-legal a:hover {
+  text-decoration: underline;
+}
+
+.footer-small {
+  margin-top: calc(7 * var(--u));
+  font-family: var(--sans);
+  font-size: max(12px, calc(8.2 * var(--u)));
+  color: #dfe5ef;
+}
+
+.footer-contact {
+  margin-top: calc(6 * var(--u));
+  display: grid;
+  gap: calc(6 * var(--u));
+  font-family: var(--sans);
+  font-size: max(12px, calc(8.4 * var(--u)));
+}
+
+.footer-contact li {
+  display: flex;
+  align-items: center;
+  gap: calc(8 * var(--u));
+  min-width: 0;
+}
+
+.footer-contact a {
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.footer-contact svg {
+  flex: none;
+  width: max(14px, calc(9.5 * var(--u)));
+  height: max(14px, calc(9.5 * var(--u)));
+  fill: none;
+  stroke: #d4ad5f;
+  stroke-width: 1.7;
+  stroke-linejoin: round;
+}
+
+.footer-legal {
+  padding: calc(12 * var(--u)) calc(36 * var(--u)) 0 calc(45 * var(--u));
+}
+
+.footer-legal::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+  margin-bottom: calc(12 * var(--u));
+}
+
+.footer-legal ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(6 * var(--u)) calc(15 * var(--u));
+}
+
+.footer-legal a {
+  font-family: var(--sans);
+  font-size: max(12px, calc(8.2 * var(--u)));
+  color: #e6ebf3;
+  text-decoration: none;
+}
+
+/* —— Tablet and phone —— */
+@media (max-width: 960px) {
+  :root {
+    --u: 1.5px;
+  }
+
+  .wrap {
+    width: 100%;
+  }
+
+  .header-inner {
+    height: auto;
+    min-height: 64px;
+    padding: 0.6rem 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+  }
+
+  .brand {
+    width: auto;
+  }
+
+  .brand-mark {
+    width: 40px;
+  }
+
+  .header-tools {
+    order: 2;
+    gap: 1rem;
+  }
+
+  .menu-toggle {
+    order: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--navy);
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .menu-bars,
+  .menu-bars::before,
+  .menu-bars::after {
+    display: block;
+    width: 16px;
+    height: 2px;
+    background: currentColor;
+    position: relative;
+  }
+
+  .menu-bars::before,
+  .menu-bars::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .menu-bars::before {
+    top: -5px;
+  }
+
+  .menu-bars::after {
+    top: 5px;
+  }
+
+  .site-nav {
+    order: 4;
+    display: none;
+    width: 100%;
+  }
+
+  .site-nav.is-open {
+    display: block;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0.25rem 0 0.5rem;
+  }
+
+  .site-nav li {
+    width: 100%;
+    border-top: 1px solid var(--line);
+  }
+
+  .site-nav a {
+    display: block;
+    padding: 0.7rem 0;
+    font-size: 1.1rem;
+  }
+
+  .site-nav a::after {
+    display: none;
+  }
+
+  .hero {
+    height: auto;
+    background: var(--cream);
+  }
+
+  .hero-img {
+    position: relative;
+    height: clamp(240px, 56vw, 460px);
+    object-position: 28% 35%;
+  }
+
+  .hero::after {
+    display: none;
+  }
+
+  .hero-copy {
+    position: static;
+    width: auto;
+    padding: 1.75rem 1.25rem 2rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 7vw, 3rem);
+    line-height: 1.02;
+  }
+
+  .hero-lede {
+    font-size: 1.15rem;
+  }
+
+  .hero .btn {
+    width: auto;
+    height: auto;
+    min-height: 48px;
+    padding: 0 2rem;
+  }
+
+  .features-list {
+    height: auto;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1.25rem 1rem;
+    row-gap: 1.25rem;
+  }
+
+  .features-list li:nth-child(3) {
+    border-left: 0;
+  }
+
+  .feature-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .who {
+    padding: 2rem 0 1.75rem;
+  }
+
+  .who-grid,
+  .journey-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1.25rem;
+  }
+
+  .script-heading {
+    font-size: 2.6rem;
+  }
+
+  .who-copy p,
+  .journey-copy p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  .who-photo,
+  .journey-photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+  }
+
+  .tagline {
+    margin-top: 1.5rem;
+    padding: 0 1.25rem;
+    font-size: 1.9rem;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .heart {
+    width: 18px;
+    height: 18px;
+  }
+
+  .quote {
+    height: auto;
+  }
+
+  .quote-inner {
+    padding: 2rem 1.25rem;
+  }
+
+  .quote-mark {
+    font-size: 3.2rem;
+    height: 1.6rem;
+  }
+
+  .quote blockquote p {
+    font-size: 1.2rem;
+  }
+
+  .journey {
+    padding: 2rem 0;
+  }
+
+  .journey-copy h2 {
+    font-size: 2.2rem;
+  }
+
+  .journey .btn {
+    width: auto;
+    height: auto;
+    min-height: 46px;
+    padding: 0 2rem;
+  }
+
+  .site-footer {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .footer-cols {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1.25rem 1.5rem;
+  }
+
+  .footer-col + .footer-col {
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    padding: 1.25rem 0 0;
+  }
+
+  .footer-legal {
+    padding: 1rem 1.25rem 0;
+  }
+
+  .br-d {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-name {
+    font-size: 12px;
+  }
+
+  .header-tools {
+    gap: 0.7rem;
+  }
+
+  .social {
+    gap: 0.55rem;
+  }
+
+  .features p {
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .site-nav a::after {
+    transition: none;
+  }
+}
+
+/* —— Second pass against the mockup: icon row weight, body size, quote mark —— */
+@media (min-width: 961px) {
+  .feature-icon {
+    width: calc(29 * var(--u));
+    height: calc(29 * var(--u));
+    stroke-width: 1.8;
+  }
+
+  .features h2 {
+    margin-top: calc(6 * var(--u));
+    font-size: calc(12 * var(--u));
+  }
+
+  .features p {
+    font-size: calc(8.8 * var(--u));
+    color: #2f3a4e;
+  }
+
+  .who-grid {
+    grid-template-columns: calc(304 * var(--u)) calc(275 * var(--u));
+  }
+
+  .who-copy p {
+    font-size: calc(13.4 * var(--u));
+    line-height: 1.28;
+    color: var(--navy);
+  }
+
+  .quote-mark {
+    font-size: calc(50 * var(--u));
+    height: calc(20 * var(--u));
+    color: #dcb262;
+  }
+
+  .quote blockquote p {
+    font-size: calc(12.6 * var(--u));
+  }
+
+  .quote figcaption {
+    color: #ecc679;
+  }
+
+  .hero h1 {
+    font-weight: 700;
+  }
+}
+
+@media (min-width: 961px) {
+  .who-grid {
+    grid-template-columns: calc(314 * var(--u)) calc(275 * var(--u));
+  }
+
+  .who-copy p {
+    font-size: calc(12.2 * var(--u));
+    line-height: 1.36;
+    white-space: nowrap;
+  }
+
+  .quote-mark {
+    font-size: calc(44 * var(--u));
+  }
+}
