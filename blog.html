@@ -194,17 +194,36 @@
 
       var chips = document.querySelectorAll(".bl-filters button");
       var cards = document.querySelectorAll(".bl-card");
+      function applyFilter(chip) {
+        var filter = chip.getAttribute("data-filter");
+        chips.forEach(function (c) {
+          c.setAttribute("aria-pressed", String(c === chip));
+        });
+        cards.forEach(function (card) {
+          card.hidden = filter !== "all" && card.getAttribute("data-category") !== filter;
+        });
+      }
+
       chips.forEach(function (chip) {
         chip.addEventListener("click", function () {
+          applyFilter(chip);
           var filter = chip.getAttribute("data-filter");
-          chips.forEach(function (c) {
-            c.setAttribute("aria-pressed", String(c === chip));
-          });
-          cards.forEach(function (card) {
-            card.hidden = filter !== "all" && card.getAttribute("data-category") !== filter;
-          });
+          var url = new URL(window.location.href);
+          if (filter === "all") {
+            url.searchParams.delete("category");
+          } else {
+            url.searchParams.set("category", filter);
+          }
+          history.replaceState(null, "", url);
         });
       });
+
+      var requested = new URLSearchParams(window.location.search).get("category");
+      if (requested) {
+        chips.forEach(function (chip) {
+          if (chip.getAttribute("data-filter").toLowerCase() === requested.toLowerCase()) applyFilter(chip);
+        });
+      }
     })();
   </script>
 </body>

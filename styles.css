@@ -1251,3 +1251,44 @@ ul {
     line-height: 1.15;
   }
 }
+
+/* Homepage feature links: whole item clickable, appearance unchanged */
+.feature-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.feature-link h2 {
+  transition: color 0.2s ease;
+}
+
+.feature-link:hover h2,
+.feature-link:focus-visible h2 {
+  color: var(--gold-text);
+}
+
+.feature-link:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+@media (max-width: 960px) {
+  .features-list li {
+    padding: 0;
+  }
+
+  .feature-link {
+    padding: calc(4 * var(--u)) 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-link h2 {
+    transition: none;
+  }
+}
