@@ -1,0 +1,478 @@
+/* Inner Pursuit of Happiness — Books page design preview.
+   Uses the --u unit (one mockup pixel) and shared header/footer from styles.css.
+   Geometry follows the approved 682px-wide Books mockup; content spans the same
+   wide boundary as the About page's upper sections. */
+
+:root {
+  --bk-w: min(calc(100vw - 48px), calc(790 * var(--u)));
+  --bk-edge: max(24px, calc((100vw - var(--bk-w)) / 2));
+}
+
+h3 {
+  margin: 0;
+}
+
+.bk-wrap {
+  width: var(--bk-w);
+  margin-inline: auto;
+}
+
+/* —— Top: books photo with title (left), David's story (right) —— */
+.bk-top {
+  display: grid;
+  grid-template-columns: 51% 1fr;
+  background: #f7f0e4;
+  border-bottom: 1px solid var(--line);
+}
+
+.bk-hero {
+  position: relative;
+  overflow: hidden;
+  background: #5a3b1c;
+}
+
+.bk-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 40% 55%;
+}
+
+.bk-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(24, 14, 4, 0.72) 0%, rgba(24, 14, 4, 0.5) 45%, rgba(24, 14, 4, 0.05) 80%);
+}
+
+.bk-hero-copy {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: calc(var(--bk-edge) + 250 * var(--u));
+  padding: calc(14 * var(--u)) calc(16 * var(--u)) calc(14 * var(--u)) var(--bk-edge);
+  color: #fff;
+}
+
+.bk-hero h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: calc(30 * var(--u));
+  line-height: 1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.bk-hero-tag {
+  margin-top: calc(4 * var(--u));
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: calc(15 * var(--u));
+  line-height: 1.15;
+  color: #f0c978;
+}
+
+.bk-hero-lede {
+  margin-top: calc(8 * var(--u));
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: max(16px, calc(9.6 * var(--u)));
+  line-height: 1.4;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+.bk-story {
+  display: grid;
+  grid-template-columns: 1fr calc(100 * var(--u));
+  gap: calc(14 * var(--u));
+  padding: calc(10 * var(--u)) var(--bk-edge) calc(10 * var(--u)) calc(18 * var(--u));
+}
+
+.bk-kicker {
+  display: flex;
+  align-items: center;
+  gap: calc(6 * var(--u));
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: max(11px, calc(6.4 * var(--u)));
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+}
+
+.bk-kicker::before {
+  content: "";
+  width: calc(14 * var(--u));
+  height: 1px;
+  background: var(--gold);
+}
+
+.bk-story h2 {
+  margin-top: calc(4 * var(--u));
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: calc(15.5 * var(--u));
+  line-height: 1.1;
+  color: var(--navy);
+}
+
+.bk-story-copy > p:not(.bk-kicker) {
+  margin-top: calc(6 * var(--u));
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: max(16px, calc(9.4 * var(--u)));
+  line-height: 1.42;
+  color: var(--ink);
+}
+
+.bk-story-btn {
+  margin-top: calc(9 * var(--u));
+  height: calc(21 * var(--u));
+  padding: 0 calc(13 * var(--u));
+  gap: 0.4em;
+  font-size: max(13px, calc(7.4 * var(--u)));
+  font-weight: 500;
+}
+
+.bk-story-img {
+  width: 100%;
+  height: 0;
+  min-height: 100%;
+  object-position: 50% 45%;
+}
+
+/* —— Shared section heading with gold rules —— */
+.bk-rule-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(14 * var(--u));
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: calc(17 * var(--u));
+  line-height: 1.1;
+  color: var(--navy);
+}
+
+.bk-rule-heading::before,
+.bk-rule-heading::after {
+  content: "";
+  width: calc(50 * var(--u));
+  height: 1px;
+  background: var(--gold);
+}
+
+.bk-section-lede {
+  margin-top: calc(4 * var(--u));
+  text-align: center;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: max(16px, calc(9.4 * var(--u)));
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.bk-section-lede strong {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* —— Explore the Books: 3 x 2 —— */
+.bk-explore {
+  background: var(--ivory);
+  padding: calc(11 * var(--u)) 0 calc(12 * var(--u));
+}
+
+.bk-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(14 * var(--u)) calc(20 * var(--u));
+  margin-top: calc(10 * var(--u));
+}
+
+.bk-book {
+  display: grid;
+  grid-template-columns: calc(84 * var(--u)) 1fr;
+  grid-template-rows: 1fr auto;
+  column-gap: calc(10 * var(--u));
+  row-gap: calc(7 * var(--u));
+}
+
+.bk-cover {
+  display: block;
+  align-self: start;
+}
+
+.bk-cover img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: 0 calc(3 * var(--u)) calc(8 * var(--u)) rgba(30, 22, 8, 0.28);
+}
+
+.bk-cover-crop img {
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: 100% 50%;
+}
+
+.bk-info h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: calc(11 * var(--u));
+  line-height: 1.18;
+  color: var(--navy);
+}
+
+.bk-info h3 a {
+  text-decoration: none;
+}
+
+.bk-info h3 a:hover {
+  text-decoration: underline;
+}
+
+.bk-info p {
+  margin-top: calc(5 * var(--u));
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: max(15px, calc(9 * var(--u)));
+  line-height: 1.38;
+  color: var(--ink);
+}
+
+.bk-info .bk-soon {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: max(11px, calc(6.4 * var(--u)));
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+}
+
+.bk-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(5 * var(--u));
+}
+
+.bk-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  height: calc(20 * var(--u));
+  padding: 0 calc(9 * var(--u));
+  border-radius: 999px;
+  background: var(--navy);
+  color: #fff;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: max(12px, calc(6.8 * var(--u)));
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 calc(2 * var(--u)) calc(5 * var(--u)) rgba(19, 34, 59, 0.2);
+  transition: filter 0.2s ease;
+}
+
+.bk-btn-gold {
+  background: linear-gradient(180deg, var(--gold-btn-top), var(--gold-btn-bottom));
+}
+
+.bk-btn:hover {
+  filter: brightness(1.12);
+}
+
+.bk-btn svg {
+  width: 1.15em;
+  height: 1.15em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* —— National Hotlines —— */
+.bk-hotlines {
+  background: #f8f2e8;
+  border-top: 1px solid var(--line);
+  padding: calc(11 * var(--u)) 0 calc(12 * var(--u));
+}
+
+.bk-hotline-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(7 * var(--u));
+  margin-top: calc(10 * var(--u));
+}
+
+.bk-hotline {
+  display: grid;
+  grid-template-columns: calc(60 * var(--u)) 1fr;
+  align-items: center;
+  gap: calc(10 * var(--u));
+  min-width: 0;
+  padding: calc(7 * var(--u)) calc(10 * var(--u));
+  background: #fdf9f2;
+  border: 1px solid #eadfc9;
+  border-radius: calc(5 * var(--u));
+}
+
+.bk-hotline-wide {
+  grid-column: 1 / -1;
+}
+
+.bk-hotline img {
+  width: 100%;
+  height: calc(40 * var(--u));
+  object-fit: contain;
+}
+
+.bk-hotline h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: calc(9.8 * var(--u));
+  line-height: 1.2;
+  color: var(--navy);
+}
+
+.bk-hotline p {
+  margin-top: calc(2 * var(--u));
+  font-family: var(--sans);
+  font-size: max(13.5px, calc(7.6 * var(--u)));
+  line-height: 1.4;
+  color: #34405a;
+}
+
+.bk-hotline a {
+  font-weight: 600;
+  color: var(--gold-text);
+  text-underline-offset: 2px;
+}
+
+/* —— Tablet and phone —— */
+@media (max-width: 960px) {
+  :root {
+    --bk-w: calc(100vw - 2.5rem);
+    --bk-edge: 1.25rem;
+  }
+
+  .bk-top {
+    grid-template-columns: 1fr;
+  }
+
+  .bk-hero-copy {
+    max-width: none;
+    min-height: 260px;
+    padding: 2rem 1.25rem;
+  }
+
+  .bk-hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .bk-hero-tag {
+    font-size: 1.5rem;
+  }
+
+  .bk-hero-lede {
+    font-size: 1.1rem;
+  }
+
+  .bk-story {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .bk-story h2,
+  .bk-rule-heading {
+    font-size: 1.9rem;
+  }
+
+  .bk-story-btn {
+    height: auto;
+    min-height: 44px;
+    padding: 0 1.4rem;
+  }
+
+  .bk-story-img {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+    max-height: 240px;
+    border-radius: 8px;
+  }
+
+  .bk-rule-heading::before,
+  .bk-rule-heading::after {
+    width: 2rem;
+  }
+
+  .bk-explore,
+  .bk-hotlines {
+    padding: 1.75rem 0;
+  }
+
+  .bk-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    margin-top: 1.25rem;
+  }
+
+  .bk-book {
+    grid-template-columns: 110px 1fr;
+    column-gap: 1rem;
+    row-gap: 0.75rem;
+  }
+
+  .bk-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .bk-btn {
+    height: 40px;
+    padding: 0 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .bk-hotline-grid {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+  }
+
+  .bk-hotline {
+    grid-template-columns: 72px 1fr;
+    gap: 0.9rem;
+    padding: 0.75rem 0.9rem;
+    border-radius: 8px;
+  }
+
+  .bk-hotline img {
+    height: 52px;
+  }
+
+  .bk-hotline h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 960px) {
+  .bk-grid,
+  .bk-hotline-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bk-btn {
+    transition: none;
+  }
+}
