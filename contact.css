@@ -1,0 +1,366 @@
+/* Inner Pursuit of Happiness - Contact (Let's Connect) design preview.
+   Uses the --u unit (one mockup pixel) and shared header/footer from styles.css.
+   Content spans the same wide boundary as the Books, Author and Blog pages. */
+
+:root {
+  --ct-w: min(calc(100vw - 48px), calc(790 * var(--u)));
+}
+
+.ct-wrap {
+  width: var(--ct-w);
+  margin-inline: auto;
+}
+
+.ct-page {
+  background: var(--ivory);
+  padding: calc(10 * var(--u)) 0 calc(12 * var(--u));
+}
+
+/* -- Introduction -- */
+.ct-head {
+  text-align: center;
+}
+
+.ct-head h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: calc(22 * var(--u));
+  line-height: 1.1;
+  color: var(--navy);
+}
+
+.ct-head p {
+  margin-top: calc(3 * var(--u));
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: max(16px, calc(9.6 * var(--u)));
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.ct-head::after {
+  content: "";
+  display: block;
+  width: calc(32 * var(--u));
+  height: 2px;
+  margin: calc(6 * var(--u)) auto 0;
+  background: var(--gold);
+}
+
+/* -- Two columns -- */
+.ct-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(7 * var(--u));
+  align-items: stretch;
+  margin-top: calc(9 * var(--u));
+}
+
+.ct-card {
+  padding: calc(10 * var(--u)) calc(11 * var(--u));
+  border: 1px solid #eadfc9;
+  border-radius: calc(6 * var(--u));
+}
+
+.ct-help {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #f8efe1 0%, #fbf5ec 100%);
+}
+
+.ct-form-card {
+  display: flex;
+  flex-direction: column;
+  background: #fffdf9;
+}
+
+.ct-card h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: calc(15 * var(--u));
+  line-height: 1.15;
+  color: var(--navy);
+}
+
+.ct-lede {
+  margin-top: calc(5 * var(--u));
+  max-width: 34em;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: max(16px, calc(9.6 * var(--u)));
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.ct-details {
+  display: grid;
+  gap: calc(6 * var(--u));
+  margin-top: calc(8 * var(--u));
+  padding: 0;
+  list-style: none;
+}
+
+.ct-details li {
+  display: flex;
+  align-items: center;
+  gap: calc(7 * var(--u));
+  min-width: 0;
+}
+
+.ct-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: calc(17 * var(--u));
+  height: calc(17 * var(--u));
+  min-width: 34px;
+  min-height: 34px;
+  border-radius: 50%;
+  background: #efdcb6;
+}
+
+.ct-icon svg {
+  width: 52%;
+  height: 52%;
+  fill: none;
+  stroke: #7a5a22;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+}
+
+.ct-details a {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: max(16px, calc(9.6 * var(--u)));
+  color: var(--navy);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.ct-details a:hover,
+.ct-details a:focus-visible {
+  color: var(--gold-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ct-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: calc(10 * var(--u));
+  border-radius: calc(4 * var(--u));
+}
+
+/* -- Form -- */
+.ct-form {
+  flex: 1;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto;
+  gap: calc(6 * var(--u));
+  margin-top: calc(7 * var(--u));
+}
+
+.ct-field-grow {
+  grid-template-rows: auto 1fr;
+}
+
+.ct-field-grow textarea {
+  height: 100%;
+}
+
+.ct-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(6 * var(--u));
+}
+
+.ct-field {
+  display: grid;
+  gap: calc(3 * var(--u));
+  min-width: 0;
+}
+
+.ct-field label {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: max(13px, calc(7 * var(--u)));
+  color: var(--navy);
+}
+
+.ct-field input,
+.ct-field textarea {
+  width: 100%;
+  min-height: max(40px, calc(18 * var(--u)));
+  padding: calc(4 * var(--u)) calc(6 * var(--u));
+  border: 1px solid #d9cfbd;
+  border-radius: calc(3 * var(--u));
+  background: #fff;
+  color: var(--navy);
+  font-family: var(--sans);
+  font-size: max(14px, calc(7 * var(--u)));
+}
+
+.ct-field textarea {
+  min-height: calc(46 * var(--u));
+  resize: vertical;
+}
+
+.ct-field input::placeholder,
+.ct-field textarea::placeholder {
+  color: #8a93a5;
+}
+
+.ct-field input:focus-visible,
+.ct-field textarea:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+  border-color: var(--gold);
+}
+
+.ct-field input[aria-invalid="true"] {
+  border-color: #a33a2a;
+}
+
+.ct-error {
+  font-family: var(--sans);
+  font-size: max(12px, calc(6.4 * var(--u)));
+  color: #a33a2a;
+}
+
+.ct-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.ct-submit {
+  width: 100%;
+  min-height: max(42px, calc(19 * var(--u)));
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--navy-deep) 0%, #24405a 55%, #3c6e78 100%);
+  color: #fff;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: max(16px, calc(9.6 * var(--u)));
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.ct-submit:hover {
+  filter: brightness(1.1);
+}
+
+.ct-submit:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.ct-notice {
+  padding: calc(5 * var(--u)) calc(7 * var(--u));
+  border: 1px solid #e0c48f;
+  border-radius: calc(4 * var(--u));
+  background: #f8ecd8;
+  font-family: var(--sans);
+  font-size: max(13px, calc(7 * var(--u)));
+  line-height: 1.6;
+  color: var(--navy);
+}
+
+.ct-status {
+  margin-top: calc(5 * var(--u));
+  padding: calc(5 * var(--u)) calc(7 * var(--u));
+  border: 1px solid #b7cdb0;
+  border-radius: calc(4 * var(--u));
+  background: #eef5ea;
+  font-family: var(--sans);
+  font-size: max(13px, calc(7 * var(--u)));
+  color: var(--navy);
+}
+
+.ct-status-error {
+  border-color: #e0b0a6;
+  background: #fbefec;
+}
+
+/* -- Tablet and phone -- */
+@media (max-width: 960px) {
+  :root {
+    --ct-w: calc(100vw - 2.5rem);
+  }
+
+  .ct-page {
+    padding: 1.5rem 0 2rem;
+  }
+
+  .ct-head h1 {
+    font-size: 2.2rem;
+  }
+
+  .ct-head::after {
+    width: 3.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .ct-grid {
+    gap: 0.9rem;
+    margin-top: 1.1rem;
+  }
+
+  .ct-card {
+    padding: 1.1rem 1.1rem 1.25rem;
+    border-radius: 10px;
+  }
+
+  .ct-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .ct-details {
+    gap: 0.6rem;
+    margin-top: 0.9rem;
+  }
+
+  .ct-details li {
+    gap: 0.75rem;
+  }
+
+  .ct-photo {
+    margin-top: 1rem;
+    border-radius: 6px;
+  }
+
+  .ct-form {
+    gap: 0.75rem;
+    margin-top: 0.8rem;
+  }
+
+  .ct-row {
+    gap: 0.75rem;
+  }
+
+  .ct-field textarea {
+    min-height: 6.5rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .ct-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .ct-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ct-submit {
+    transition: none;
+  }
+}
