@@ -1219,3 +1219,35 @@ ul {
     object-position: 30% 32%;
   }
 }
+
+/* —— Full-width hero photo at the compact height; tighter feature row —— */
+@media (min-width: 961px) {
+  .hero {
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  .hero-img {
+    object-position: 30% 29%;
+  }
+
+  .features-list {
+    height: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .features-list li {
+    padding: 0;
+  }
+
+  .features h2 {
+    margin-top: 2px;
+    line-height: 1.1;
+  }
+
+  .features p {
+    margin-top: 1px;
+    line-height: 1.15;
+  }
+}
