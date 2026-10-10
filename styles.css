@@ -1008,3 +1008,203 @@ ul {
     font-size: calc(44 * var(--u));
   }
 }
+
+/* —— Compact pass: content width capped at 1180px (682 mockup px x 1.73),
+   then section heights and type reduced toward the requested targets. —— */
+@media (min-width: 961px) {
+  :root {
+    --u: min(calc(100vw / 682), 1.73px);
+  }
+
+  .header-inner {
+    height: calc(45 * var(--u));
+  }
+
+  .brand-mark {
+    width: calc(26 * var(--u));
+  }
+
+  .brand-name {
+    font-size: calc(9.6 * var(--u));
+  }
+
+  .site-nav a {
+    font-size: max(14px, calc(8.7 * var(--u)));
+  }
+
+  .header-tools svg {
+    width: calc(11 * var(--u));
+    height: calc(11 * var(--u));
+  }
+
+  .hero {
+    height: calc(182 * var(--u));
+  }
+
+  .hero-img {
+    object-position: 30% 26%;
+  }
+
+  .hero-copy {
+    top: calc(24 * var(--u));
+  }
+
+  .hero h1 {
+    font-size: calc(24.3 * var(--u));
+  }
+
+  .hero-lede {
+    margin-top: calc(8 * var(--u));
+    font-size: max(16px, calc(9.8 * var(--u)));
+  }
+
+  .hero .btn {
+    margin-top: calc(11 * var(--u));
+    width: calc(116 * var(--u));
+    height: calc(25.5 * var(--u));
+    font-size: max(11px, calc(7 * var(--u)));
+  }
+
+  .features-list {
+    height: calc(82 * var(--u));
+  }
+
+  .feature-icon {
+    width: calc(26 * var(--u));
+    height: calc(26 * var(--u));
+  }
+
+  .features h2 {
+    margin-top: calc(5 * var(--u));
+    font-size: calc(10 * var(--u));
+  }
+
+  .features p {
+    font-size: max(13px, calc(8 * var(--u)));
+  }
+
+  .who {
+    padding: calc(14 * var(--u)) 0 calc(10 * var(--u));
+  }
+
+  .who-grid {
+    grid-template-columns: calc(300 * var(--u)) calc(275 * var(--u));
+    align-items: center;
+  }
+
+  .script-heading {
+    font-size: calc(27.7 * var(--u));
+    margin-top: 0;
+  }
+
+  .who-copy p {
+    font-size: calc(10.4 * var(--u));
+    line-height: 1.45;
+  }
+
+  .who-copy .script-heading + p {
+    margin-top: calc(8 * var(--u));
+  }
+
+  .who-more {
+    margin-top: calc(7 * var(--u));
+  }
+
+  .who-photo {
+    height: calc(153 * var(--u));
+  }
+
+  .tagline {
+    margin-top: calc(8 * var(--u));
+    font-size: calc(18 * var(--u));
+  }
+
+  .heart {
+    width: calc(11 * var(--u));
+    height: calc(11 * var(--u));
+  }
+
+  .quote {
+    height: calc(98 * var(--u));
+  }
+
+  .quote-mark {
+    font-size: calc(36 * var(--u));
+    height: calc(15 * var(--u));
+  }
+
+  .quote blockquote p {
+    margin-top: calc(5 * var(--u));
+    font-size: calc(10.4 * var(--u));
+  }
+
+  .quote figcaption {
+    margin-top: calc(6 * var(--u));
+    font-size: max(11px, calc(6.8 * var(--u)));
+  }
+
+  .journey {
+    padding: calc(12 * var(--u)) 0 calc(10 * var(--u));
+  }
+
+  .journey-photo {
+    height: calc(140 * var(--u));
+  }
+
+  .journey-copy h2 {
+    font-size: calc(18.5 * var(--u));
+  }
+
+  .journey-copy p {
+    margin-top: calc(7 * var(--u));
+    font-size: calc(10.4 * var(--u));
+    line-height: 1.45;
+  }
+
+  .journey .btn {
+    margin-top: calc(12 * var(--u));
+    width: calc(84 * var(--u));
+    height: calc(25 * var(--u));
+    font-size: max(13px, calc(8.6 * var(--u)));
+  }
+
+  .site-footer {
+    padding: calc(12 * var(--u)) 0 calc(9 * var(--u));
+  }
+
+  .footer-cols {
+    padding-bottom: calc(11 * var(--u));
+  }
+
+  .footer-label {
+    font-size: max(11px, calc(6.6 * var(--u)));
+  }
+
+  .footer-serif {
+    margin-top: calc(6 * var(--u));
+    font-size: calc(8.7 * var(--u));
+  }
+
+  .footer-small {
+    margin-top: calc(5 * var(--u));
+    font-size: max(13px, calc(7.5 * var(--u)));
+  }
+
+  .footer-contact {
+    margin-top: calc(5 * var(--u));
+    gap: calc(4 * var(--u));
+    font-size: max(13px, calc(7.8 * var(--u)));
+  }
+
+  .footer-legal {
+    padding-top: calc(8 * var(--u));
+  }
+
+  .footer-legal::before {
+    margin-bottom: calc(8 * var(--u));
+  }
+
+  .footer-legal a {
+    font-size: max(13px, calc(7.6 * var(--u)));
+  }
+}
