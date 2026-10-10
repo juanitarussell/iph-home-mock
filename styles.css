@@ -1208,3 +1208,14 @@ ul {
     font-size: max(13px, calc(7.6 * var(--u)));
   }
 }
+
+@media (min-width: 961px) {
+  .hero {
+    max-width: calc(682 * var(--u));
+    margin-inline: auto;
+  }
+
+  .hero-img {
+    object-position: 30% 32%;
+  }
+}
