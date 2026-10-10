@@ -506,6 +506,112 @@ h3 {
   }
 }
 
+/* —— Mockup fidelity: wider content boundary for the about sections,
+   longer text lines, approved painting size, mockup card layout —— */
+@media (min-width: 961px) {
+  :root {
+    --ab-w: min(calc(100vw - 48px), calc(760 * var(--u)));
+  }
+
+  .ab-intro-copy {
+    padding: calc(10 * var(--u)) max(24px, calc((100vw - var(--ab-w)) / 2)) calc(10 * var(--u)) calc(14 * var(--u));
+  }
+
+  .ab-quote-grid,
+  .ab-cv > .wrap,
+  .ab-isr-grid {
+    width: var(--ab-w);
+  }
+
+  .ab-quote {
+    padding: calc(10 * var(--u)) 0;
+  }
+
+  .ab-quote-grid {
+    grid-template-columns: 1fr calc(168 * var(--u));
+    gap: calc(24 * var(--u));
+    padding: 0 calc(30 * var(--u)) 0 calc(10 * var(--u));
+  }
+
+  .ab-quote blockquote p {
+    max-width: calc(390 * var(--u));
+    margin-inline: auto;
+    font-size: calc(12 * var(--u));
+    line-height: 1.45;
+  }
+
+  .ab-quote-mark {
+    font-size: calc(40 * var(--u));
+    height: calc(14 * var(--u));
+  }
+
+  .ab-quote figcaption {
+    margin-top: calc(8 * var(--u));
+  }
+
+  .ab-quote-img {
+    width: calc(168 * var(--u));
+    height: calc(182 * var(--u));
+    object-position: 50% 50%;
+  }
+
+  .ab-cv-list {
+    padding: 0;
+  }
+
+  .ab-cv-list li {
+    padding: 0 calc(16 * var(--u));
+  }
+
+  .ab-cv-list .ab-cv-org,
+  .ab-cv-list p {
+    text-align: left;
+  }
+
+  .ab-years {
+    max-width: calc(600 * var(--u));
+  }
+
+  .ab-years p {
+    text-wrap: balance;
+  }
+
+  .ab-isr-grid {
+    grid-template-columns: 5fr 7fr;
+    gap: calc(14 * var(--u));
+    align-items: stretch;
+    padding: 0;
+  }
+
+  .ab-isr-img {
+    height: 0;
+    min-height: 100%;
+  }
+
+  .ab-cards li {
+    grid-template-columns: calc(21 * var(--u)) 1fr;
+    grid-template-rows: none;
+    column-gap: calc(7 * var(--u));
+    align-items: start;
+    padding: calc(6 * var(--u)) calc(8 * var(--u));
+  }
+
+  .ab-card-icon {
+    width: calc(21 * var(--u));
+    height: calc(21 * var(--u));
+    padding: calc(3 * var(--u));
+    stroke-width: 2.2;
+    border-radius: 50%;
+    background: #fbf7ef;
+  }
+
+  .ab-cards p {
+    grid-column: auto;
+    margin-top: calc(2 * var(--u));
+    line-height: 1.42;
+  }
+}
+
 /* —— Tablet and phone —— */
 @media (max-width: 960px) {
   .ab-intro,
@@ -666,5 +772,14 @@ h3 {
 
   .ab-quote-img {
     width: min(100%, 300px);
+    aspect-ratio: 489 / 537;
+  }
+
+  .ab-cards li {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    column-gap: 0.75rem;
+    align-items: start;
+    text-align: left;
   }
 }
