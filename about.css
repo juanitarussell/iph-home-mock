@@ -612,6 +612,62 @@ h3 {
   }
 }
 
+/* —— Top three sections: shorter, wider text measure —— */
+@media (min-width: 961px) {
+  :root {
+    --ab-w-top: min(calc(100vw - 48px), calc(790 * var(--u)));
+  }
+
+  .ab-intro {
+    grid-template-columns: calc(50% - 36 * var(--u)) 1fr;
+  }
+
+  .ab-intro-copy {
+    padding: calc(8 * var(--u)) max(24px, calc((100vw - var(--ab-w-top)) / 2)) calc(8 * var(--u)) calc(14 * var(--u));
+  }
+
+  .ab-quote {
+    padding: calc(7 * var(--u)) 0;
+  }
+
+  .ab-quote-grid,
+  .ab-cv > .wrap {
+    width: var(--ab-w-top);
+  }
+
+  .ab-quote-grid {
+    grid-template-columns: minmax(0, calc(470 * var(--u))) calc(146 * var(--u));
+    justify-content: center;
+    gap: calc(28 * var(--u));
+    padding: 0;
+  }
+
+  .ab-quote blockquote p {
+    max-width: calc(470 * var(--u));
+  }
+
+  .ab-quote-img {
+    width: calc(146 * var(--u));
+    height: calc(158 * var(--u));
+  }
+
+  .ab-cv {
+    padding: calc(9 * var(--u)) 0 calc(10 * var(--u));
+  }
+
+  .ab-cv-list li {
+    padding: 0 calc(10 * var(--u));
+  }
+
+  .ab-cv-list li:first-child {
+    padding-left: 0;
+  }
+
+  .ab-cv-list li:last-child {
+    padding-right: 0;
+  }
+}
+
 /* —— Tablet and phone —— */
 @media (max-width: 960px) {
   .ab-intro,
